@@ -1,21 +1,28 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
-import {Col,Row} from 'reactstrap';
+import {Col,Row,Modal,ModalHeader,ModalBody,Form,FormGroup,Label,Input,Button} from 'reactstrap';
 import { useHistory ,Link, Redirect} from 'react-router-dom';
 class Login extends Component {
     constructor(props){
     super(props);
     this.state={
-        Login_id:"",
-        password:"",
-        type:"",
-        redirect:false
+            Login_id:"",
+            password:"",
+            type:"",
+            redirect:false,
+            isModalOpen: false
         };
         this.handleAddLoginId=this.handleAddLoginId.bind(this);
         this.handleAddPassword=this.handleAddPassword.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
     }
 
+    toggleModal() {
+        this.setState({
+            isModalOpen: !this.state.isModalOpen,
+        });
+    }
     handleAddLoginId=async e=>{
         await this.setState({
             Login_id : e.target.value,
@@ -72,10 +79,27 @@ class Login extends Component {
         
 
         return (
+            <div>
+            <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+          <ModalHeader toggle={this.toggleModal}>
+            Add Placement Event
+          </ModalHeader>
+          <ModalBody>
+            <Form onSubmit={this.handleSub}>
+              <FormGroup>
+                <Label htmlfor="Email">Email</Label>
+                <Input type="text" id="email" name="email"  value={this.state.email} onChange={this.onChangeEmail} />
+              </FormGroup>
+              <Button type="submit" value="submit" color="primary">
+                Submit
+              </Button>
+            </Form>
+          </ModalBody>
+        </Modal>
             <header>
                  <div className="row banner">
                     <div className="banner-text">
-                            <h1 style={{"font-size":"150px"}}className="responsive-headline">GB-GCGC</h1>
+                            <h1 style={{"font-size":"150px"}} className="responsive-headline">GB-GCGC</h1>
                             <h2 style={{"color":"white"}}>GITAM Career Guidance Cell</h2>
                             <hr />
                         <div id="BodyLogin" className='centered container-fluid'>
@@ -102,6 +126,7 @@ class Login extends Component {
                                     </Row>
                                 </form>
                             </div>
+                            <Link onClick={this.toggleModal} align="right"><div style={{color:"white",fontSize:"15px"}}>Forgot Password? Click here</div></Link>
                         </div>
                     </div>
                         </div>
@@ -118,6 +143,7 @@ class Login extends Component {
                     </div>
                 </div>
             </header>
+            </div>
          );
     }
 }

@@ -13,7 +13,7 @@ class ARI extends Component {
   constructor(props){
     super(props);
     this.state={
-        AT1:0,AT2:0,AT3:0,AT4:0,AT5:0,AT6:0,TT1:0,TT2:0,TT3:0,TT4:0,TT5:0,TT6:0,TT7:0,TT8:0,DT1:0,DT2:0,DT3:0,DT4:0,
+        AT1:0,AT2:0,AT3:0,AT4:0,AT5:0,AT6:0,TT1:0,TT2:0,TT3:0,TT4:0,TT5:0,TT6:0,TT7:0,TT8:0,DT1:0,DT2:0,DT3:0,DT4:0,GT1:0,GT2:0,
         student_id:321710307034,
     }
 };
@@ -39,6 +39,8 @@ class ARI extends Component {
                     DT2:response.data[0]['DT2_score'],
                     DT3:response.data[0]['DT3_score'],
                     DT4:response.data[0]['DT4_score'],
+                    GT1:response.data[0]['GT1_score'],
+                    GT2:response.data[0]['GT2_score'],
                 })
                 console.log(this.state.AT1)
             })
@@ -56,22 +58,22 @@ class ARI extends Component {
             <Card className="Rounded p-3">
               <Bar
                 data={{
-                    labels: ['CT1','CT2','CT3','CT4','CT5','CT6','TT1','TT2','TT3','TT4','TT5','TT6','TT7','TT8','DT1','DT2','DT3','DT4'],
+                    labels: ['CT1','CT2','CT3','CT4','CT5','CT6','TT1','TT2','TT3','TT4','TT5','TT6','TT7','TT8','DT1','DT2','DT3','DT4','GT1','GT2'],
                 datasets: [
                         {
                           backgroundColor: ['lightblue','lightblue','lightblue','lightblue','lightblue','lightblue',
                             'lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen',
-                            'pink','pink','pink','pink'
+                            'pink','pink','pink','pink','yellow','yellow'
                           ],
                           borderColor: ['lightblue','lightblue','lightblue','lightblue','lightblue','lightblue',
                             'lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen','lightgreen',
-                            'pink','pink','pink','pink'
+                            'pink','pink','pink','pink','yellow','yellow'
                           ],
                           borderWidth: 1,
-                          hoverBackgroundColor: ['blue','blue','blue','blue','blue','blue','green','green','green','green','green','green','green','green','red','red','red','red'],
-                          hoverBorderColor: ['blue','blue','blue','blue','blue','blue','green','green','green','green','green','green','green','green','red','red','red','red'],
+                          hoverBackgroundColor: ['blue','blue','blue','blue','blue','blue','green','green','green','green','green','green','green','green','red','red','red','red','orange','orange'],
+                          hoverBorderColor: ['blue','blue','blue','blue','blue','blue','green','green','green','green','green','green','green','green','red','red','red','red',,'orange','orange'],
                           data: [this.state.AT1,this.state.AT2,this.state.AT3,this.state.AT4,this.state.AT5,this.state.AT6,this.state.TT1,this.state.TT2,this.state.TT3,this.state.TT4,
-                            this.state.TT5,this.state.TT6,this.state.TT7,this.state.TT8,this.state.DT1,this.state.DT2,this.state.DT3,this.state.DT4], 
+                            this.state.TT5,this.state.TT6,this.state.TT7,this.state.TT8,this.state.DT1,this.state.DT2,this.state.DT3,this.state.DT4,this.state.GT1,this.state.GT2], 
                           },
                         ],
                 }}

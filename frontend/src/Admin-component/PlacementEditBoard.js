@@ -13,7 +13,6 @@ import {
   NavbarToggler,
   Collapse,
   Nav,
-  Jumbotron,
   Modal,
   ModalHeader,
   ModalBody,

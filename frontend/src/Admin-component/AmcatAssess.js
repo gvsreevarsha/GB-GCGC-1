@@ -30,7 +30,7 @@ export default class Students extends Component{
                     <td>{this.props.obj.min}</td>
                     <td>
                         <Tooltip title="Students" placement="right">
-                            <Link to={"/user/"+this.props.obj.id} ><FontAwesomeIcon icon={faUser} className="ml-2 p-1 fa-lg" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/></Link>
+                            <Link to={"/assess/"+this.props.obj.sno} ><FontAwesomeIcon icon={faUser} className="ml-2 p-1 fa-lg" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/></Link>
                         </Tooltip>
                     </td>
                 </tr>

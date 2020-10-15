@@ -32,6 +32,7 @@ import userstaffAdd from "../userstaffAdd";
 import EditStaff from "../edituserstaff";
 import StudentView from "../../Admin-component/StudentView";
 import Dashboard from "../../user-components/Dashboard";
+import Assess from "../../Admin-component/Assess";
 const ColoredLine = ({ color }) => (
   <hr
     style={{
@@ -107,6 +108,11 @@ const Content = ({id,sidebarIsOpen, toggleSidebar}) => (
         exact
         path={"/PlacementEditBoard/:id"}
         component={PlacementBoardEdit}
+      />
+      <Route
+        exact
+        path="/assess/:id"
+        component={Assess}
       />
       <Route exact path={"/edit/:id"} component={EditTraining}/>
       <Route exact path={"/editplacement/:id"} component={EditPlacement}/>

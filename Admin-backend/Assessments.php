@@ -89,16 +89,19 @@
             $row5 = mysqli_fetch_assoc($result5);
             if($row5['count']=='')
                 $row5['count']=0;
-            $students[$cr]['sno']=$cr+1;
-            $students[$cr]['assessment']=$row['name'];;
-            $students[$cr]['YOP']=$row['yop'];
-            $students[$cr]['Date']=$row['date'];
-            $students[$cr]['attended']=$row4['count'];
-            $students[$cr]['absent']=$row5['count'];
-            $students[$cr]['max']=$row2['max'];
-            $students[$cr]['min']=$row3['min'];
-            $students[$cr]['avg']=round($row1['avg'],2);
-            $cr++;
+            if($row['name']!="AMCAT" && $row['name']!="COCUBES-1" && $row['name']!="COCUBES-2")
+            {
+            	$students[$cr]['sno']=$cr+1;
+            	$students[$cr]['assessment']=$row['name'];
+            	$students[$cr]['YOP']=$row['yop'];
+            	$students[$cr]['Date']=$row['date'];
+            	$students[$cr]['attended']=$row4['count'];
+            	$students[$cr]['absent']=$row5['count'];
+            	$students[$cr]['max']=$row2['max'];
+            	$students[$cr]['min']=$row3['min'];
+            	$students[$cr]['avg']=round($row1['avg'],2);
+            	$cr++;
+        	}
         }
     }
     else
